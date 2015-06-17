@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+FAQ
 
 <?php include("footer.php"); ?>

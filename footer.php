@@ -1,7 +1,7 @@
 			</div>
 		</main>
 
-		<footer>
+		<footer class="navbar-default">
 			<div class="container">
 				All Rights Reserved &copy; 2015
 				<span class="navbar-right">

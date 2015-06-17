@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Portfel
 
 <?php include("footer.php"); ?>

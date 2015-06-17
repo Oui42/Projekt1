@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Ustawienia
 
 <?php include("footer.php"); ?>

@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Regulamin
 
 <?php include("footer.php"); ?>

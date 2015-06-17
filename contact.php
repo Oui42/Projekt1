@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Kontakt
 
 <?php include("footer.php"); ?>

@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Historia
 
 <?php include("footer.php"); ?>

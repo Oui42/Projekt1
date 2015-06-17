@@ -1,5 +1,5 @@
 <?php include("header.php"); ?>
 
-Strona główna
+Profil
 
 <?php include("footer.php"); ?>
