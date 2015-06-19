@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-<h4>Ustawienia</h4>
+<h4>Użytkownicy <small>- Edycja</small></h4>
 
 <hr>
 

@@ -1,5 +1,9 @@
 <?php include("header.php"); ?>
 
-Profil
+<h4>Profil</h4>
+
+<hr>
+
+...
 
 <?php include("footer.php"); ?>

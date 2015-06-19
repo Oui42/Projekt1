@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-<h4>Ustawienia</h4>
+<h4>Oferta <small>- Produkty</small></h4>
 
 <hr>
 

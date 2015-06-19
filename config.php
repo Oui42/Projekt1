@@ -20,6 +20,8 @@ $__RANK = array(
 );
 
 
+
 /* Ustawienia: */
 $set['webName'] = "Test";				// Nazwa strony
+$set['domain'] = "ouipage.pl/demo2";	// Adres strony
 $set['contact'] = "ouix42@gmail.com";	// Kontaktowy adres e-mail

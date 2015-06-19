@@ -1,5 +1,9 @@
 <?php include("header.php"); ?>
 
-Historia
+<h4>Historia</h4>
+
+<hr>
+
+...
 
 <?php include("footer.php"); ?>
