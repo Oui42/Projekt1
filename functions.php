@@ -78,3 +78,18 @@ function sendActivationLink($id) {
 		throw new Exception("Użytkownik podany w pierwszym parametrze $id nie został odnaleziony!");
 	}
 }
+
+function addMoney($id, $money) {
+	if(isset($id) && is_numeric($id)) {
+		if(isset($money) && is_numeric($money) && $money > 0) {
+			$_user = getUser($id);
+			$_userMoney = $_user['u_money'];
+			$newMoney = $_userMoney + $money;
+			mysql_query("UPDATE `users` SET `u_money` = '".$newMoney."' WHERE `u_id` = '".$id."'");
+		} else {
+			die("Wystąpił błąd podczas dodawania punktów. Nieprawidłowa wartość punktów.");
+		}
+	} else {
+		die("Wystąpił błąd podczas dodawania punktów. Nieprawidłowe ID użytkownika.");
+	}
+}

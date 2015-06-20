@@ -19,9 +19,17 @@ $__RANK = array(
 	'admin' => 3
 );
 
+$__PMETHOD = array(
+	'sms' => 0,
+	'transfer' => 1
+);
+
 
 
 /* Ustawienia: */
 $set['webName'] = "Test";				// Nazwa strony
 $set['domain'] = "ouipage.pl/demo2";	// Adres strony
 $set['contact'] = "ouix42@gmail.com";	// Kontaktowy adres e-mail
+$set['tax'] = 0.23;						// Aktualna stawka podatku VAT
+
+$config_homepay_usr_id = 8052;			// ID użytkownika HomePay
