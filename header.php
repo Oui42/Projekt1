@@ -41,8 +41,7 @@
 									echo '<li><a href="profile.php">'.$user['u_email'].'</a></li>';
 									echo '<li role="separator" class="divider"></li>';
 									echo '<li><a href="wallet.php">Portfel ('.$user['u_money'].' wPLN)</a></li>';
-									echo '<li><a href="history.php">Historia</a></li>';
-									echo '<li><a href="settings.php">Ustawienia</a></li>';
+									echo '<li><a href="history.php">Historia zakupów</a></li>';
 									echo '<li role="separator" class="divider"></li>';
 									echo '<li><a href="logout.php">Wyloguj</a></li>';
 								} ?>

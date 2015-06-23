@@ -57,6 +57,7 @@ if(isset($_POST['check_code']) && $_POST['check_code']) {
 		if($check == "1") {
 			header("Location: wallet.php?success=".$sms_config_homepay[$_POST['sms_service']]['sms_money']);
 			addMoney($user['u_id'], $sms_config_homepay[$_POST['sms_service']]['sms_money']);
+			mysql_query("INSERT INTO `payments` (p_user, p_method, p_acc_id, p_money, p_cost, p_name, p_date) VALUES('".$user['u_id']."', '".$__PMETHOD['sms']."', '".$sms_config_homepay[$_POST['sms_service']]['sms_acc_id']."', '".$sms_config_homepay[$_POST['sms_service']]['sms_money']."', '".$sms_config_homepay[$_POST['sms_service']]['sms_netto']."', '".$sms_config_homepay[$_POST['sms_service']]['sms_name']."', '".time()."')");
 		} else if($check == "0")
 			echo errorMessage("Nieprawidłowy kod.");
 		else
@@ -77,6 +78,7 @@ if(isset($_POST['check_tcode']) && $_POST['check_tcode']) {
 		if($check == "1") {
 			header("Location: wallet.php?success=".$transfer_config_homepay[$_POST['transfer_service']]['transfer_money']);
 			addMoney($user['u_id'], $transfer_config_homepay[$_POST['transfer_service']]['transfer_money']);
+			mysql_query("INSERT INTO `payments` (p_user, p_method, p_acc_id, p_money, p_cost, p_name, p_date) VALUES('".$user['u_id']."', '".$__PMETHOD['transfer']."', '".$transfer_config_homepay[$_POST['transfer_service']]['transfer_acc_id']."', '".$transfer_config_homepay[$_POST['transfer_service']]['transfer_money']."', '".$transfer_config_homepay[$_POST['transfer_service']]['transfer_cost']."', '".$transfer_config_homepay[$_POST['transfer_service']]['transfer_name']."', '".time()."')");
 		} else if($check == "0")
 			echo errorMessage("Nieprawidłowy kod.");
 		else
@@ -89,7 +91,7 @@ if(isset($_GET['success']) && !empty($_GET['success']))
 
 ?>
 
-<h4>Portfel <small>: <?php echo $user['u_money']; ?> wPLN</small></h4>
+<h4>Portfel <small>- Stan konta: <?php echo $user['u_money']; ?> wPLN</small></h4>
 
 <hr>
 
@@ -125,9 +127,9 @@ if(isset($_GET['success']) && !empty($_GET['success']))
 			echo "<form class='form-horizontal' action='' method='post'>";
 				echo "<input type='hidden' name='check_code' value='1'>";
 				echo "<div class='form-group'>";
-					echo "<label for='select' class='col-md-2 control-label'>Usługa:</label>";
+					echo "<label for='sms_select' class='col-md-2 control-label'>Usługa:</label>";
 					echo "<div class='col-md-10'>";
-						echo "<select class='form-control' id='select' name='sms_service'>";
+						echo "<select class='form-control' id='sms_select' name='sms_service'>";
 							echo "<option value='' disabled selected>Wybierz usługę</option>";
 							foreach($sms_config_homepay as $k=>$v) 
 							echo "<option name='sms_service' value='".$k."'>".$v['sms_brutto']."zł z VAT - ".$v['sms_money']." wPLN</option>\n";
@@ -184,9 +186,9 @@ if(isset($_GET['success']) && !empty($_GET['success']))
 			echo "<form class='form-horizontal' action='' method='post'>";
 				echo "<input type='hidden' name='check_tcode' value='1'>";
 				echo "<div class='form-group'>";
-					echo "<label for='select' class='col-md-2 control-label'>Usługa:</label>";
+					echo "<label for='transfer_select' class='col-md-2 control-label'>Usługa:</label>";
 					echo "<div class='col-md-10'>";
-						echo "<select class='form-control' id='select' name='transfer_service'>";
+						echo "<select class='form-control' id='transfer_select' name='transfer_service'>";
 							echo "<option value='' disabled selected>Wybierz usługę</option>";
 							foreach($transfer_config_homepay as $k=>$v) 
 							echo "<option name='transfer_service' value='".$k."'>".$v['transfer_cost']."zł - ".$v['transfer_money']." wPLN</option>\n";

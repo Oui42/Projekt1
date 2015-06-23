@@ -86,9 +86,9 @@ if(isset($_POST['submitRegister'])) {
 			$error[] = "Adres e-mail jest nieprawidłowy.";
 		if($Rpassword != $Rpasswordr)
 			$error[] = "Podane hasła nie są identyczne.";
-		if(!filter_var($inviting, FILTER_VALIDATE_EMAIL))
+		if(!filter_var($Rinviting, FILTER_VALIDATE_EMAIL))
 			$error[] = "Adres e-mail osoby zapraszającej jest nieprawidłowy.";
-		if(mysql_num_rows(mysql_query("SELECT `u_email` FROM `users` WHERE `u_email` = '".$inviting."'")) == 0)
+		if(mysql_num_rows(mysql_query("SELECT `u_email` FROM `users` WHERE `u_email` = '".$Rinviting."'")) == 0)
 			$error[] = "Adres e-mail osoby zapraszającej nie istnieje.";
 		if(strlen($Rpassword) < 5)
 			$error[] = "Hasło musi mieć minimum 5 znaków.";
@@ -104,8 +104,8 @@ if(isset($_POST['submitRegister'])) {
 		mysql_query("INSERT INTO `users` (u_email, u_password, u_salt, u_code, u_register_date, u_ip) VALUES('".$Remail."', '".$insertPassword."', '".$salt."', '".$code."', '".time()."', '".$_SERVER['REMOTE_ADDR']."')") or die(mysql_error());
 
 		$id = mysql_insert_id();
-		if(!empty($inviting)) {
-			$invitingUser = getUserByEmail($inviting);
+		if(!empty($Rinviting)) {
+			$invitingUser = getUserByEmail($Rinviting);
 			if($invitingUser > 0) {
 				$invitingid = $invitingUser['u_id'];
 				mysql_query("INSERT INTO `invited` (inv_id, inv_inviting, inv_invited, inv_date) VALUES('NULL', '".$invitingid."', '".$id."', '".time()."')");

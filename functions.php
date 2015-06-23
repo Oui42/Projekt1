@@ -93,3 +93,23 @@ function addMoney($id, $money) {
 		die("Wystąpił błąd podczas dodawania punktów. Nieprawidłowe ID użytkownika.");
 	}
 }
+
+function showDate($date) {
+	$dt = new DateTime("@$date");
+	$formating = $dt->format('Y-m-d, H:i');
+	//$formating = $dt->format('Y-m-d, H:i:s'); - with seconds
+
+	$tab2 = explode(", ",$formating);
+	$tab = explode("-",$tab2[0]);
+	$time = explode(":",$tab2[1]);
+	$time = $time[0].":".$time[1];
+
+	if($tab[2] == date('d') && $tab[1] == date('m') && $tab[0] == date('Y'))
+		$tab = "Dzisiaj, ".$time;
+	else if($tab[2] == date('d')-1 && $tab[1] == date('m') && $tab[0] == date('Y'))
+		$tab = "Wczoraj, ".$time;
+	else
+		$tab = $formating;
+
+	return $tab;
+}

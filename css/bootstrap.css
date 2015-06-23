@@ -166,6 +166,10 @@ input[type="submit"] {
 button[disabled],
 html input[disabled] {
   cursor: default;
+  background-color: #414141;
+  border-width: 0;
+  padding: 2px;
+  border-radius: 5px;
 }
 button::-moz-focus-inner,
 input::-moz-focus-inner {
